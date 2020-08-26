@@ -11,11 +11,15 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
-  def note_content=(content)
-    self.notes <<  Note.find_or_create_by(content: content)
+  def note_contents=(contents)
+    contents.each do |content|
+      if content.strip != ""
+         self.notes.build(content: content)
+      end
+    end
   end
 
-  def note_content
-    self.notes ? self.notes[0] : nil
+  def note_contents
+    self.notes.map(&:content)
   end
 end
