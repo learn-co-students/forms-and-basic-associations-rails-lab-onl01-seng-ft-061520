@@ -5,10 +5,23 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  # def note_content=(content)  
+
+  #     @note = Note.create(content: c)
+  #     self.notes << @note
+
+  # end
 
   def note_content=(content)
-    @note = Note.create(content: content)
-    self.notes << @note
+
+    content.each do |c|
+      if c != ""
+      @note = Note.create(content: c)
+
+      self.notes << @note
+      end
+    end
+    # binding.pry
   end
 
   def note_content

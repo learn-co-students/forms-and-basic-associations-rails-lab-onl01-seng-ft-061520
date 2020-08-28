@@ -8,7 +8,6 @@ class SongsController < ApplicationController
   end
 
   def new
-    @note = Note.new
     @song = Song.new
   end
 
@@ -51,7 +50,7 @@ class SongsController < ApplicationController
   def song_params
 
     # params.require(:song).permit(:title)
-    params.require(:song).permit(:title, :artist_name, :genre_id)
+    params.require(:song).permit(:title, :artist_name, :genre_id, :note_content => [])
   end
 end
 

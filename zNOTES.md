@@ -85,4 +85,6 @@ FINAL ERROR =>>    Unable to find field :song_notes_1 that is not disabled
         <input type="text" name="contents" value="" />
 
         <%= f.text_field :note_content %></br>
+
+        <%= f.text_field :note_content %>
   
